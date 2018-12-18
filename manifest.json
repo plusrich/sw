@@ -1,0 +1,16 @@
+{
+    "short_name": "sw",
+    "name": "sw-demo",
+    "start_url": "index.html",
+    "icons": [
+        {
+            "src": "./icon.jpg",
+            "type": "image/jpg",
+            "sizes": "48x48"
+        }
+    ],
+    "background_color": "#2196f3",
+    "display": "standalone",
+    "theme_color": "blue"
+
+}
