@@ -55,6 +55,14 @@ if ('serviceWorker' in navigator) {
 } else {
 	$('#isSupport').text('不支持');
 }
+
+window.onload = function() {
+	if ('PushManager' in window) {
+		alert('supported')
+	} else {
+		alert('not supported')
+	}
+}
 </script>
 </body>
 </html>
