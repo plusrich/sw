@@ -31,6 +31,19 @@ if ('serviceWorker' in navigator) {
 	navigator.serviceWorker.register('./sw-demo-cache.js', {
 		scope: './'
 	}).then(function (registration) {
+		if ('PushManager' in window) {
+			Notification.requestPermission(function(perm) {
+				if (perm === 'granted') {
+					registration.showNotification("这是一个通知撒:", {
+						dir: "auto",  
+						lang: "hi",  
+						tag: "testTag",  
+						icon: "https://static.cnblogs.com/images/adminlogo.gif",  
+						body: "通知content"  
+					})
+				}
+			})
+		}
 		$('#isSuccess').text('注册成功');
         var serviceWorker;
         if (registration.installing) {
@@ -54,14 +67,6 @@ if ('serviceWorker' in navigator) {
     });
 } else {
 	$('#isSupport').text('不支持');
-}
-
-window.onload = function() {
-	if ('PushManager' in window) {
-		alert('supported')
-	} else {
-		alert('not supported')
-	}
 }
 </script>
 </body>
